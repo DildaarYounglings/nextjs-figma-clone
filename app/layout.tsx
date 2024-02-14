@@ -2,8 +2,14 @@
 
 import "./globals.css";
 import Page from "./page";
+import {Work_Sans} from "next/font/google";
+import Room from "./Room";
 
-
+const workSans = Work_Sans({
+  subsets:["latin"],
+  variable:"--font-work-sans",
+  weight:["400","600","700"]
+})
 export const metadata = {
   title: "Figma Clone",
   description:
@@ -13,8 +19,10 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang='en'>
-    <body>
-      <Page/>
+    <body className={`${workSans.className} bg-primary-grey-200`}>
+      <Room>
+        {children}
+      </Room>
     </body>
   </html>
 );
